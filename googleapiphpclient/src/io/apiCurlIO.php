@@ -93,6 +93,7 @@ class apiCurlIO implements apiIO {
     $ch = curl_init();
     curl_setopt_array($ch, self::$DEFAULT_CURL_PARAMS);
     curl_setopt($ch, CURLOPT_URL, $request->getUrl());
+    curl_setopt($ch, CURLOPT_TIMEOUT, 240);
     if ($request->getPostBody()) {
       curl_setopt($ch, CURLOPT_POSTFIELDS, $request->getPostBody());
     }
